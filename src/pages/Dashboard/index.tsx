@@ -4,8 +4,9 @@ import 'react-day-picker/lib/style.css';
 import { isToday, format, parseISO, isAfter } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { Link } from 'react-router-dom';
-
 import { FiPower, FiClock } from 'react-icons/fi';
+import avatarPlaceholder from '../../assets/original.jpg';
+
 import {
   Container,
   Header,
@@ -137,7 +138,10 @@ const Dashboard: React.FC = () => {
         <HeaderContent>
           <img src={logoImg} alt="GoBarber" />
           <Profile>
-            <img src={user.avatar_url} alt={user.name} />
+            <img
+              src={user.avatar_url ? user.avatar_url : avatarPlaceholder}
+              alt={user.name}
+            />
             <div>
               <span>Bem-Vindo,</span>
               <Link to="/profile">
